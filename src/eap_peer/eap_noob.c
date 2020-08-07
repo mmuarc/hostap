@@ -2047,6 +2047,7 @@ static int eap_noob_read_config(struct eap_sm *sm, struct eap_noob_data * data)
 **/
 static int eap_noob_peer_ctxt_init(struct eap_sm * sm,  struct eap_noob_data * data)
 {
+    wpa_printf(MSG_DEBUG, "EAP-NOOB: Entering %s", __func__);
     char * input = NULL;
     const u8 * addr[1];
     size_t len[1];

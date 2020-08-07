@@ -276,11 +276,15 @@ static int eap_noob_parse_NAI(struct eap_noob_data * data, const char * NAI)
     wpa_printf(MSG_DEBUG, "EAP-NOOB: Entering %s, parsing NAI (%s)",__func__, NAI);
 
     _NAI = (char *)NAI;
+    printf("the realm is:-%s-", server_conf.realm);
+    printf("NaI is: %s, ",NAI);
 
     if (os_strstr(_NAI, DEFAULT_REALM) || os_strstr(_NAI, server_conf.realm)) {
+        
         user_name_peer = strsep(&_NAI, "@");
         realm = strsep(&_NAI, "@");
-
+        printf("EAP-Noob: user_name_peer is: %s, ",user_name_peer);
+        printf("EAP-Noob: realm is: %s, ",realm);
         if (strlen(user_name_peer) > MAX_PEER_ID_LEN) {
             eap_noob_set_error(data,E1001);
             return FAILURE;
@@ -298,12 +302,14 @@ static int eap_noob_parse_NAI(struct eap_noob_data * data, const char * NAI)
             return SUCCESS;
         } else if (0 == strcmp("noob", user_name_peer) && 0 == strcmp(realm, DEFAULT_REALM)) {
             data->peer_state = UNREGISTERED_STATE;
+            wpa_printf(MSG_DEBUG, "EAP-NOOB: Exiting %s, parsing NAI (%s) with SUCCESS",__func__, NAI);
             return SUCCESS;
         }
     }
 
     // NAI realm is neither the DEFAULT_REALM nor the configured realm
     eap_noob_set_error(data, E1001);
+    
     return FAILURE;
 }
 
@@ -693,7 +699,7 @@ static int eap_noob_read_config(struct eap_noob_data * data)
         wpa_printf(MSG_DEBUG, "EAP-NOOB: Error in allocating memory.");
         ret = FAILURE; goto ERROR_EXIT;
     }
-
+    
     data->config_params = 0;
     while(!feof(conf_file)) {
         if (fgets(buff, MAX_CONF_LEN, conf_file)) {
@@ -701,7 +707,6 @@ static int eap_noob_read_config(struct eap_noob_data * data)
             memset(buff, 0, MAX_CONF_LEN);
         }
     }
-
     if ((data->versions[0] > MAX_SUP_VER) || (data->cryptosuites[0] > MAX_SUP_CSUITES) ||
         (data->dirs > BOTH_DIRECTIONS)) {
         wpa_printf(MSG_ERROR, "EAP-NOOB: Incorrect confing value");
@@ -2318,6 +2323,7 @@ static int eap_noob_getTimeout(struct eap_sm *sm, void *priv)
  **/
 static int eap_noob_server_ctxt_init(struct eap_noob_data * data, struct eap_sm * sm)
 {
+    wpa_printf(MSG_DEBUG, "EAP-NOOB: Entering %s", __func__);
     char * NAI = NULL;
     int retval = FAILURE;
 
@@ -2335,6 +2341,7 @@ static int eap_noob_server_ctxt_init(struct eap_noob_data * data, struct eap_sm 
         return FAILURE;
     }
     wpa_printf(MSG_DEBUG, "EAP-NOOB: Finished reading config");
+    wpa_printf(MSG_DEBUG, "EAP-NOOB-MIGUEL: server_conf.realm is-> %s",server_conf.realm);
 
     if (sm->identity) {
         NAI = os_zalloc(sm->identity_len+1);

@@ -1,0 +1,150 @@
+random: Trying to read entropy from /dev/random
+Configuration file: ./hostapd.conf
+ctrl_interface_group=0
+nl80211: Using driver-based roaming
+nl80211: TDLS supported
+nl80211: Supported cipher 00-0f-ac:1
+nl80211: Supported cipher 00-0f-ac:5
+nl80211: Supported cipher 00-0f-ac:2
+nl80211: Supported cipher 00-0f-ac:4
+nl80211: Supported cipher 00-0f-ac:6
+nl80211: Using driver-based off-channel TX
+nl80211: Supported vendor command: vendor_id=0x1018 subcmd=1
+nl80211: Use separate P2P group interface (driver advertised support)
+nl80211: Enable multi-channel concurrent (driver advertised support)
+nl80211: use P2P_DEVICE support
+nl80211: key_mgmt=0xd0f enc=0x10f auth=0x7 flags=0x2000000380cfacc rrm_flags=0x0 probe_resp_offloads=0x0 max_stations=0 max_remain_on_chan=5000 max_scan_ssids=10
+nl80211: interface wlan0 in phy phy0
+nl80211: Set mode ifindex 3 iftype 3 (AP)
+nl80211: Setup AP(wlan0) - device_ap_sme=1 use_monitor=0
+nl80211: Subscribe to mgmt frames with AP handle 0x1388760 (device SME)
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=04 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=0501 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=0503 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=0504 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=06 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=08 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=09 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=0a multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=11 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x1388760 match=7f multicast=0
+nl80211: Register frame type=0xb0 (WLAN_FC_STYPE_AUTH) nl_handle=0x1388760 match= multicast=0
+nl80211: Enable Probe Request reporting nl_preq=0x1384f40
+nl80211: Register frame type=0x40 (WLAN_FC_STYPE_PROBE_REQ) nl_handle=0x1384f40 match= multicast=0
+rfkill: initial event: idx=0 type=1 op=0 soft=0 hard=0
+nl80211: Add own interface ifindex 3 (ifidx_reason -1)
+nl80211: if_indices[16]: 3(-1)
+phy: phy0
+BSS count 1, BSSID mask 00:00:00:00:00:00 (0 bits)
+nl80211: Regulatory information - country=IE (DFS-ETSI)
+nl80211: 2402-2482 @ 40 MHz 20 mBm
+nl80211: 5170-5250 @ 80 MHz 20 mBm
+nl80211: 5250-5330 @ 80 MHz 20 mBm (DFS)
+nl80211: 5490-5710 @ 160 MHz 27 mBm (DFS)
+nl80211: 57000-66000 @ 2160 MHz 40 mBm
+nl80211: Added 802.11b mode based on 802.11g information
+nl80211: Mode IEEE 802.11g: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484[DISABLED]
+nl80211: Mode IEEE 802.11a: 5170[DISABLED] 5180 5190[DISABLED] 5200 5210[DISABLED] 5220 5230[DISABLED] 5240 5260[NO_IR][RADAR] 5280[NO_IR][RADAR] 5300[NO_IR][RADAR] 5320[NO_IR][RADAR] 5500[NO_IR][RADAR] 5520[NO_IR][RADAR]
+nl80211: Mode IEEE 802.11b: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484[DISABLED]
+Completing interface initialization
+Mode: IEEE 802.11g  Channel: 1  Frequency: 2412 MHz
+hostapd_handle_dfs_offload: iface->cac_started: 0
+hostapd_handle_dfs_offload: freq 2412 MHz does not require DFS. Continue channel/AP setup
+Proceed with AP/channel setup
+nl80211: Set freq 2412 (ht_enabled=0, vht_enabled=0, he_enabled=0, bandwidth=20 MHz, cf1=2412 MHz, cf2=0 MHz)
+  * freq=2412
+  * he_enabled=0
+  * vht_enabled=0
+  * ht_enabled=0
+  * channel_type=0
+RATE[0] rate=10 flags=0x1
+RATE[1] rate=20 flags=0x1
+RATE[2] rate=55 flags=0x1
+RATE[3] rate=110 flags=0x1
+RATE[4] rate=60 flags=0x0
+RATE[5] rate=90 flags=0x0
+RATE[6] rate=120 flags=0x0
+RATE[7] rate=180 flags=0x0
+RATE[8] rate=240 flags=0x0
+RATE[9] rate=360 flags=0x0
+RATE[10] rate=480 flags=0x0
+RATE[11] rate=540 flags=0x0
+hostapd_setup_bss(hapd=0x13869b8 (wlan0), first=1)
+nl80211: flush -> DEL_STATION wlan0 (all)
+nl80211: Station flush failed: ret=-14 (Bad address)
+Using interface wlan0 with hwaddr dc:a6:32:2f:3b:08 and ssid "test"
+random: Got 20/20 random bytes
+GMK - hexdump(len=32): [REMOVED]
+Key Counter - hexdump(len=32): [REMOVED]
+WPA: Delay group state machine start until Beacon frames have been configured
+nl80211: Set beacon (beacon_set=0)
+nl80211: Beacon head - hexdump(len=55): 80 00 00 00 ff ff ff ff ff ff dc a6 32 2f 3b 08 dc a6 32 2f 3b 08 00 00 00 00 00 00 00 00 00 00 64 00 11 04 00 04 74 65 73 74 01 08 82 84 8b 96 0c 12 18 24 03 01 01
+nl80211: Beacon tail - hexdump(len=61): 2a 01 04 32 04 30 48 60 6c 30 18 01 00 00 0f ac 02 02 00 00 0f ac 04 00 0f ac 02 01 00 00 0f ac 01 0c 00 dd 18 00 50 f2 02 01 01 01 00 03 a4 00 00 27 a4 00 00 42 43 5e 00 62 32 2f 00
+nl80211: ifindex=3
+nl80211: beacon_int=100
+nl80211: beacon_rate=0
+nl80211: rate_type=0
+nl80211: dtim_period=2
+nl80211: ssid=test
+  * beacon_int=100
+  * dtim_period=2
+nl80211: hidden SSID not in use
+nl80211: privacy=2
+nl80211: auth_algs=0x3
+nl80211: wpa_version=0x2
+nl80211: key_mgmt_suites=0x1
+nl80211: pairwise_ciphers=0x18
+nl80211: group_cipher=0x8
+wlan0: Deauthenticate all stations at BSS start
+nl80211: sta_remove -> DEL_STATION wlan0 ff:ff:ff:ff:ff:ff --> 0 (Success)
+WPA: Start group state machine to set initial keys
+WPA: group state machine entering state GTK_INIT (VLAN-ID 0)
+GTK - hexdump(len=32): [REMOVED]
+WPA: group state machine entering state SETKEYSDONE (VLAN-ID 0)
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=2 addr=0x92910 key_idx=1 set_tx=1 seq_len=0 key_len=32 key_flag=0x1a
+nl80211: NEW_KEY
+nl80211: KEY_DATA - hexdump(len=32): [REMOVED]
+   broadcast key
+nl80211: NL80211_CMD_SET_KEY - default key
+nl80211: Set wlan0 operstate 0->1 (UP)
+netlink: Operstate: ifindex=3 linkmode=-1 (no change), operstate=6 (IF_OPER_UP)
+nl80211: TX queue param set: queue=0 aifs=1 cw_min=3 cw_max=7 burst_time=15 --> res=-95
+Failed to set TX queue parameters for queue 0.
+nl80211: TX queue param set: queue=1 aifs=1 cw_min=7 cw_max=15 burst_time=30 --> res=-95
+Failed to set TX queue parameters for queue 1.
+nl80211: TX queue param set: queue=2 aifs=3 cw_min=15 cw_max=63 burst_time=0 --> res=-95
+Failed to set TX queue parameters for queue 2.
+nl80211: TX queue param set: queue=3 aifs=7 cw_min=15 cw_max=1023 burst_time=0 --> res=-95
+Failed to set TX queue parameters for queue 3.
+wlan0: interface state UNINITIALIZED->ENABLED
+wlan0: AP-ENABLED 
+wlan0: Setup of interface done.
+ctrl_iface not configured!
+RTM_NEWLINK: ifi_index=3 ifname=wlan0 operstate=6 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+RTM_NEWLINK: ifi_index=3 ifname=wlan0 operstate=6 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+Signal 2 received - terminating
+hostapd_interface_deinit_free(0x1384400)
+hostapd_interface_deinit_free: num_bss=1 conf->num_bss=1
+hostapd_interface_deinit(0x1384400)
+wlan0: interface state ENABLED->DISABLED
+hostapd_bss_deinit: deinit bss wlan0
+wlan0: Deauthenticate all stations
+nl80211: sta_remove -> DEL_STATION wlan0 ff:ff:ff:ff:ff:ff --> 0 (Success)
+wlan0: AP-DISABLED 
+hostapd_cleanup(hapd=0x13869b8 (wlan0))
+wlan0: CTRL-EVENT-TERMINATING 
+hostapd_free_hapd_data(wlan0)
+hostapd_interface_deinit_free: driver=0x9fc18 drv_priv=0x1388090 -> hapd_deinit
+nl80211: deinit ifname=wlan0 disabled_11b_rates=0
+nl80211: Disable Probe Request reporting nl_preq=0x89b0c7c9
+nl80211: Remove monitor interface: refcount=0
+nl80211: Remove beacon (ifindex=3)
+netlink: Operstate: ifindex=3 linkmode=0 (kernel-control), operstate=6 (IF_OPER_UP)
+nl80211: Set mode ifindex 3 iftype 2 (STATION)
+nl80211: Teardown AP(wlan0) - device_ap_sme=1 use_monitor=0
+nl80211: Unsubscribe mgmt frames handle 0x89b00fe9 (AP teardown (dev SME))
+hostapd_interface_free(0x1384400)
+hostapd_interface_free: free hapd 0x13869b8
+hostapd_cleanup_iface(0x1384400)
+hostapd_cleanup_iface_partial(0x1384400)
+hostapd_cleanup_iface: free iface=0x1384400

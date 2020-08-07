@@ -1,0 +1,442 @@
+random: Trying to read entropy from /dev/random
+Configuration file: ./hostapd.conf
+ctrl_interface_group=0
+nl80211: Using driver-based roaming
+nl80211: TDLS supported
+nl80211: Supported cipher 00-0f-ac:1
+nl80211: Supported cipher 00-0f-ac:5
+nl80211: Supported cipher 00-0f-ac:2
+nl80211: Supported cipher 00-0f-ac:4
+nl80211: Supported cipher 00-0f-ac:6
+nl80211: Using driver-based off-channel TX
+nl80211: Supported vendor command: vendor_id=0x1018 subcmd=1
+nl80211: Use separate P2P group interface (driver advertised support)
+nl80211: Enable multi-channel concurrent (driver advertised support)
+nl80211: use P2P_DEVICE support
+nl80211: key_mgmt=0xd0f enc=0x10f auth=0x7 flags=0x2000000380cfacc rrm_flags=0x0 probe_resp_offloads=0x0 max_stations=0 max_remain_on_chan=5000 max_scan_ssids=10
+nl80211: interface wlan0 in phy phy0
+nl80211: Set mode ifindex 3 iftype 3 (AP)
+nl80211: Setup AP(wlan0) - device_ap_sme=1 use_monitor=0
+nl80211: Subscribe to mgmt frames with AP handle 0xf71760 (device SME)
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=04 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=0501 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=0503 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=0504 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=06 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=08 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=09 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=0a multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=11 multicast=0
+nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0xf71760 match=7f multicast=0
+nl80211: Register frame type=0xb0 (WLAN_FC_STYPE_AUTH) nl_handle=0xf71760 match= multicast=0
+nl80211: Enable Probe Request reporting nl_preq=0xf6df40
+nl80211: Register frame type=0x40 (WLAN_FC_STYPE_PROBE_REQ) nl_handle=0xf6df40 match= multicast=0
+rfkill: initial event: idx=0 type=1 op=0 soft=0 hard=0
+nl80211: Add own interface ifindex 3 (ifidx_reason -1)
+nl80211: if_indices[16]: 3(-1)
+phy: phy0
+BSS count 1, BSSID mask 00:00:00:00:00:00 (0 bits)
+nl80211: Regulatory information - country=IE (DFS-ETSI)
+nl80211: 2402-2482 @ 40 MHz 20 mBm
+nl80211: 5170-5250 @ 80 MHz 20 mBm
+nl80211: 5250-5330 @ 80 MHz 20 mBm (DFS)
+nl80211: 5490-5710 @ 160 MHz 27 mBm (DFS)
+nl80211: 57000-66000 @ 2160 MHz 40 mBm
+nl80211: Added 802.11b mode based on 802.11g information
+nl80211: Mode IEEE 802.11g: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484[DISABLED]
+nl80211: Mode IEEE 802.11a: 5170[DISABLED] 5180 5190[DISABLED] 5200 5210[DISABLED] 5220 5230[DISABLED] 5240 5260[NO_IR][RADAR] 5280[NO_IR][RADAR] 5300[NO_IR][RADAR] 5320[NO_IR][RADAR] 5500[NO_IR][RADAR] 5520[NO_IR][RADAR]
+nl80211: Mode IEEE 802.11b: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484[DISABLED]
+Completing interface initialization
+Mode: IEEE 802.11g  Channel: 1  Frequency: 2412 MHz
+hostapd_handle_dfs_offload: iface->cac_started: 0
+hostapd_handle_dfs_offload: freq 2412 MHz does not require DFS. Continue channel/AP setup
+Proceed with AP/channel setup
+nl80211: Set freq 2412 (ht_enabled=0, vht_enabled=0, he_enabled=0, bandwidth=20 MHz, cf1=2412 MHz, cf2=0 MHz)
+  * freq=2412
+  * he_enabled=0
+  * vht_enabled=0
+  * ht_enabled=0
+  * channel_type=0
+RATE[0] rate=10 flags=0x1
+RATE[1] rate=20 flags=0x1
+RATE[2] rate=55 flags=0x1
+RATE[3] rate=110 flags=0x1
+RATE[4] rate=60 flags=0x0
+RATE[5] rate=90 flags=0x0
+RATE[6] rate=120 flags=0x0
+RATE[7] rate=180 flags=0x0
+RATE[8] rate=240 flags=0x0
+RATE[9] rate=360 flags=0x0
+RATE[10] rate=480 flags=0x0
+RATE[11] rate=540 flags=0x0
+hostapd_setup_bss(hapd=0xf6f9b8 (wlan0), first=1)
+nl80211: flush -> DEL_STATION wlan0 (all)
+nl80211: Station flush failed: ret=-14 (Bad address)
+Using interface wlan0 with hwaddr dc:a6:32:2f:3b:08 and ssid "test"
+random: Got 20/20 random bytes
+GMK - hexdump(len=32): [REMOVED]
+Key Counter - hexdump(len=32): [REMOVED]
+WPA: Delay group state machine start until Beacon frames have been configured
+nl80211: Set beacon (beacon_set=0)
+nl80211: Beacon head - hexdump(len=55): 80 00 00 00 ff ff ff ff ff ff dc a6 32 2f 3b 08 dc a6 32 2f 3b 08 00 00 00 00 00 00 00 00 00 00 64 00 11 04 00 04 74 65 73 74 01 08 82 84 8b 96 0c 12 18 24 03 01 01
+nl80211: Beacon tail - hexdump(len=61): 2a 01 04 32 04 30 48 60 6c 30 18 01 00 00 0f ac 02 02 00 00 0f ac 04 00 0f ac 02 01 00 00 0f ac 01 0c 00 dd 18 00 50 f2 02 01 01 01 00 03 a4 00 00 27 a4 00 00 42 43 5e 00 62 32 2f 00
+nl80211: ifindex=3
+nl80211: beacon_int=100
+nl80211: beacon_rate=0
+nl80211: rate_type=0
+nl80211: dtim_period=2
+nl80211: ssid=test
+  * beacon_int=100
+  * dtim_period=2
+nl80211: hidden SSID not in use
+nl80211: privacy=2
+nl80211: auth_algs=0x3
+nl80211: wpa_version=0x2
+nl80211: key_mgmt_suites=0x1
+nl80211: pairwise_ciphers=0x18
+nl80211: group_cipher=0x8
+wlan0: Deauthenticate all stations at BSS start
+nl80211: sta_remove -> DEL_STATION wlan0 ff:ff:ff:ff:ff:ff --> 0 (Success)
+WPA: Start group state machine to set initial keys
+WPA: group state machine entering state GTK_INIT (VLAN-ID 0)
+GTK - hexdump(len=32): [REMOVED]
+WPA: group state machine entering state SETKEYSDONE (VLAN-ID 0)
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=2 addr=0x92910 key_idx=1 set_tx=1 seq_len=0 key_len=32 key_flag=0x1a
+nl80211: NEW_KEY
+nl80211: KEY_DATA - hexdump(len=32): [REMOVED]
+   broadcast key
+nl80211: NL80211_CMD_SET_KEY - default key
+nl80211: Set wlan0 operstate 0->1 (UP)
+netlink: Operstate: ifindex=3 linkmode=-1 (no change), operstate=6 (IF_OPER_UP)
+nl80211: TX queue param set: queue=0 aifs=1 cw_min=3 cw_max=7 burst_time=15 --> res=-95
+Failed to set TX queue parameters for queue 0.
+nl80211: TX queue param set: queue=1 aifs=1 cw_min=7 cw_max=15 burst_time=30 --> res=-95
+Failed to set TX queue parameters for queue 1.
+nl80211: TX queue param set: queue=2 aifs=3 cw_min=15 cw_max=63 burst_time=0 --> res=-95
+Failed to set TX queue parameters for queue 2.
+nl80211: TX queue param set: queue=3 aifs=7 cw_min=15 cw_max=1023 burst_time=0 --> res=-95
+Failed to set TX queue parameters for queue 3.
+wlan0: interface state UNINITIALIZED->ENABLED
+wlan0: AP-ENABLED 
+wlan0: Setup of interface done.
+ctrl_iface not configured!
+RTM_NEWLINK: ifi_index=3 ifname=wlan0 operstate=6 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+RTM_NEWLINK: ifi_index=3 ifname=wlan0 operstate=6 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+nl80211: Ignored event 33 (NL80211_CMD_TRIGGER_SCAN) for foreign interface (ifindex 5 wdev 0x0)
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+nl80211: Ignored event 34 (NL80211_CMD_NEW_SCAN_RESULTS) for foreign interface (ifindex 5 wdev 0x0)
+nl80211: Ignored event 19 (NL80211_CMD_NEW_STATION) for foreign interface (ifindex 5 wdev 0x0)
+nl80211: Ignored event 37 (NL80211_CMD_AUTHENTICATE) for foreign interface (ifindex 5 wdev 0x0)
+nl80211: Drv Event 19 (NL80211_CMD_NEW_STATION) received for wlan0
+nl80211: New station 60:e3:27:11:d1:25
+nl80211: Assoc Req IEs - hexdump(len=97): 00 04 74 65 73 74 01 08 02 04 0b 16 0c 12 18 24 32 04 30 48 60 6c 30 14 01 00 00 0f ac 02 01 00 00 0f ac 04 01 00 00 0f ac 01 00 00 2d 1a 6e 18 1f ff ff 00 00 01 00 00 00 00 00 2c 01 01 00 00 00 00 00 00 00 00 00 00 7f 08 00 00 00 00 00 00 00 40 3b 04 51 51 53 54 dd 07 00 50 f2 02 00 01 00
+wlan0: Event ASSOC (0) received
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.11: associated
+STA included RSN IE in (Re)AssocReq
+  New STA
+ap_sta_add: register ap_handle_timer timeout for 60:e3:27:11:d1:25 (300 seconds - ap_max_inactivity)
+nl80211: Set STA flags - ifname=wlan0 addr=60:e3:27:11:d1:25 total_flags=0x60 flags_or=0x0 flags_and=0xfffffff1 authorized=0
+wlan0: STA 60:e3:27:11:d1:25 WPA: event 1 notification
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=0 addr=0xf7a6d0 key_idx=0 set_tx=1 seq_len=0 key_len=0 key_flag=0x20
+nl80211: DEL_KEY
+   addr=60:e3:27:11:d1:25
+   pairwise key
+nl80211: set_key failed; err=-22 Invalid argument
+RSN: PTK removal from the driver failed
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: start authentication
+EAP: Server state machine created
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state IDLE
+IEEE 802.1X: 60:e3:27:11:d1:25 CTRL_DIR entering state FORCE_BOTH
+wlan0: STA 60:e3:27:11:d1:25 WPA: start authentication
+WPA: 60:e3:27:11:d1:25 WPA_PTK entering state INITIALIZE
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=0 addr=0xf7a6d0 key_idx=0 set_tx=1 seq_len=0 key_len=0 key_flag=0x20
+nl80211: DEL_KEY
+   addr=60:e3:27:11:d1:25
+   pairwise key
+nl80211: set_key failed; err=-22 Invalid argument
+RSN: PTK removal from the driver failed
+WPA: 60:e3:27:11:d1:25 WPA_PTK_GROUP entering state IDLE
+WPA: 60:e3:27:11:d1:25 WPA_PTK entering state AUTHENTICATION
+WPA: 60:e3:27:11:d1:25 WPA_PTK entering state AUTHENTICATION2
+WPA: Re-initialize GMK/Counter on first station
+GMK - hexdump(len=32): [REMOVED]
+Key Counter - hexdump(len=32): [REMOVED]
+GTK - hexdump(len=32): [REMOVED]
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=2 addr=0x92910 key_idx=1 set_tx=1 seq_len=0 key_len=32 key_flag=0x1a
+nl80211: NEW_KEY
+nl80211: KEY_DATA - hexdump(len=32): [REMOVED]
+   broadcast key
+nl80211: NL80211_CMD_SET_KEY - default key
+WPA: Assign ANonce - hexdump(len=32): 99 e9 0b f9 bb 6b a8 27 6d 84 ae ee 65 53 49 0e 5e db 5c 1a 75 d7 78 06 bd 49 cf ca ab a7 ae d3
+wlan0: hostapd_new_assoc_sta: reschedule ap_handle_timer timeout for 60:e3:27:11:d1:25 (300 seconds - ap_max_inactivity)
+IEEE 802.1X: 60:e3:27:11:d1:25 AUTH_PAE entering state DISCONNECTED
+nl80211: Set STA flags - ifname=wlan0 addr=60:e3:27:11:d1:25 total_flags=0x60 flags_or=0x0 flags_and=0xfffffffe authorized=0
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: unauthorizing port
+IEEE 802.1X: 60:e3:27:11:d1:25 AUTH_PAE entering state RESTART
+EAP: EAP entering state INITIALIZE
+EAP: parseEapResp: invalid resp=(nil) len=0
+wlan0: CTRL-EVENT-EAP-STARTED 60:e3:27:11:d1:25
+EAP: EAP entering state SELECT_ACTION
+EAP: getDecision: no identity known yet -> CONTINUE
+EAP: EAP entering state PROPOSE_METHOD
+EAP: getNextMethod: vendor 0 type 1
+wlan0: CTRL-EVENT-EAP-PROPOSED-METHOD vendor=0 method=1
+EAP: EAP entering state METHOD_REQUEST
+EAP: building EAP-Request: Identifier 70
+EAP: EAP entering state SEND_REQUEST
+EAP: EAP entering state IDLE
+EAP: retransmit timeout 3 seconds (from dynamic back off; retransCount=0)
+IEEE 802.1X: 60:e3:27:11:d1:25 AUTH_PAE entering state CONNECTING
+IEEE 802.1X: 60:e3:27:11:d1:25 AUTH_PAE entering state AUTHENTICATING
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state REQUEST
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: Sending EAP Packet (identifier 70)
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 operstate=5 linkmode=1 ifi_family=0 ifi_flags=0x11003 ([UP][LOWER_UP])
+nl80211: Ignored event 38 (NL80211_CMD_ASSOCIATE) for foreign interface (ifindex 5 wdev 0x0)
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 wext ifi_family=0 ifi_flags=0x11003 ([UP][LOWER_UP])
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 wext ifi_family=0 ifi_flags=0x11003 ([UP][LOWER_UP])
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 wext ifi_family=0 ifi_flags=0x11003 ([UP][LOWER_UP])
+nl80211: Ignored event 46 (NL80211_CMD_CONNECT) for foreign interface (ifindex 5 wdev 0x0)
+nl80211: Ignored event 36 (NL80211_CMD_REG_CHANGE) for foreign interface (ifindex -1 wdev 0x0)
+wlan0: Event EAPOL_RX (23) received
+IEEE 802.1X: 26 bytes from 60:e3:27:11:d1:25
+   IEEE 802.1X: version=1 type=0 length=22
+EAP: code=2 (response) identifier=70 length=22
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: received EAP packet (code=2 id=70 len=22) from STA: EAP Response-Identity (1)
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state RESPONSE
+EAP: EAP entering state RECEIVED
+EAP: parseEapResp: rxResp=1 rxInitiate=0 respId=70 respMethod=1 respVendor=0 respVendorMethod=0
+EAP: EAP entering state INTEGRITY_CHECK
+EAP: EAP entering state METHOD_RESPONSE
+EAP-Identity: Peer identity - hexdump_ascii(len=17):
+     6e 6f 6f 62 40 65 61 70 2d 6e 6f 6f 62 2e 6e 65   noob@eap-noob.ne
+     74                                                t               
+EAP: EAP entering state SELECT_ACTION
+EAP: getDecision: another method available -> CONTINUE
+EAP: EAP entering state PROPOSE_METHOD
+EAP: getNextMethod: vendor 0 type 56
+EAP-NOOB: INIT SERVER
+EAP-NOOB: Entering eap_noob_server_ctxt_init
+EAP-NOOB: Entering function eap_noob_read_config
+EAP-NOOB: CONF Name = Version 7
+EAP-NOOB: FILE  READ= 1
+EAP-NOOB: CONF Name = Csuite 6
+EAP-NOOB: Server supports cryptosuite 1
+EAP-NOOB: FILE  READ = 1 cryptosuites
+EAP-NOOB: CONF Name = OobDirs 7
+EAP-NOOB: FILE  READ= 3
+EAP-NOOB: CONF Name = ServerName 10
+EAP-NOOB: FILE  READ= Example
+
+EAP-NOOB: CONF Name = ServerUrl 9
+EAP-NOOB: FILE  READ= https://127.0.0.1:8080/sendOOB
+EAP-NOOB: CONF Name = Max_WE 6
+EAP-NOOB: FILE  READ= 5
+EAP-NOOB: CONF Name = OobMessageEncoding 18
+EAP-NOOB: FILE  READ= 1
+EAP-NOOB: CONF Name = Realm 5
+EAP-NOOB: FILE  READ= eap-noob.net
+EAP-NOOB: Finished reading config
+EAP-NOOB: Finished retrieving NAI
+EAP-NOOB: Entering eap_noob_parse_NAI, parsing NAI (noob@eap-noob.net)
+the realm is:-eap-noob.net-NaI is: noob@eap-noob.net, EAP-NOOB: server realm-
+EAP-Noob: user_name_peer is: noob, EAP-Noob: realm is: eap-noob.net, EAP-NOOB: Finished context init
+wlan0: CTRL-EVENT-EAP-PROPOSED-METHOD vendor=0 method=56
+EAP: EAP entering state METHOD_REQUEST
+EAP: building EAP-Request: Identifier 71
+EAP-NOOB: BUILDREQ SERVER
+EAP-NOOB: next request = 1
+EAP-NOOB: ENTERING BUILD TYPE 1
+In function eap_noob_getTimeout
+EAP: EAP entering state SEND_REQUEST
+EAP: EAP entering state IDLE
+EAP: retransmit timeout 1 seconds (from EAP method hint)
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state REQUEST
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: Sending EAP Packet (identifier 71)
+wlan0: Event EAPOL_RX (23) received
+IEEE 802.1X: 33 bytes from 60:e3:27:11:d1:25
+   IEEE 802.1X: version=1 type=0 length=29
+EAP: code=2 (response) identifier=71 length=29
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: received EAP packet (code=2 id=71 len=29) from STA: EAP Response-NOOB (56)
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state RESPONSE
+EAP: EAP entering state RECEIVED
+EAP: parseEapResp: rxResp=1 rxInitiate=0 respId=71 respMethod=56 respVendor=0 respVendorMethod=0
+EAP: EAP entering state INTEGRITY_CHECK
+EAP-NOOB: Checking EAP-Response packet.
+EAP-NOOB: Received response = {"Type":1,"PeerState":0}
+EAP-NOOB: Received frame: opcode = 1
+EAP-NOOB: STATE = 0
+EAP-NOOB: VERIFY STATE SERV = 0 PEER = 0
+EAP: EAP entering state METHOD_RESPONSE
+EAP-NOOB: PROCESS SERVER
+EAP-NOOB: RECEIVED RESPONSE = {"Type":1,"PeerState":0}
+EAP-NOOB: Entering eap_noob_decode_obj
+EAP-NOOB: Entering eap_noob_verify_param_len
+EAP-NOOB: ENTERING NOOB PROCESS TYPE 1
+EAP-NOOB: Entering eap_noob_create_db
+EAP-NOOB: Entering eap_noob_db_statements
+EAP-NOOB: Entering eap_noob_db_statements
+EAP-NOOB:Serv state = 0, Peer state = 0, Next req =2
+DONE   = 0
+EAP-NOOB: IS Done? 0
+EAP: EAP entering state METHOD_REQUEST
+EAP: building EAP-Request: Identifier 72
+EAP-NOOB: BUILDREQ SERVER
+EAP-NOOB: next request = 2
+EAP-NOOB: ENTERING BUILD TYPE 2
+EAP-NOOB: Generating PeerId
+In function eap_noob_getTimeout
+EAP: EAP entering state SEND_REQUEST
+EAP: EAP entering state IDLE
+EAP: retransmit timeout 1 seconds (from EAP method hint)
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state REQUEST
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: Sending EAP Packet (identifier 72)
+wlan0: Event EAPOL_RX (23) received
+IEEE 802.1X: 189 bytes from 60:e3:27:11:d1:25
+   IEEE 802.1X: version=1 type=0 length=185
+EAP: code=2 (response) identifier=72 length=185
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: received EAP packet (code=2 id=72 len=185) from STA: EAP Response-NOOB (56)
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state RESPONSE
+EAP: EAP entering state RECEIVED
+EAP: parseEapResp: rxResp=1 rxInitiate=0 respId=72 respMethod=56 respVendor=0 respVendorMethod=0
+EAP: EAP entering state INTEGRITY_CHECK
+EAP-NOOB: Checking EAP-Response packet.
+EAP-NOOB: Received response = {"Type":2,"Verp":1,"PeerId":"eiOQJnLS9tXaWfQVHpvJ63","Cryptosuitep":1,"Dirp":1,"PeerInfo":{"Make":"Acme","Type":"None","Serial":"DU-9999","SSID":"test","BSSID":"dc:a6:32:2f:3b:8"}}
+EAP-NOOB: Received frame: opcode = 2
+EAP-NOOB: STATE = 0
+EAP-NOOB: VERIFY STATE SERV = 0 PEER = 0
+EAP: EAP entering state METHOD_RESPONSE
+EAP-NOOB: PROCESS SERVER
+EAP-NOOB: RECEIVED RESPONSE = {"Type":2,"Verp":1,"PeerId":"eiOQJnLS9tXaWfQVHpvJ63","Cryptosuitep":1,"Dirp":1,"PeerInfo":{"Make":"Acme","Type":"None","Serial":"DU-9999","SSID":"test","BSSID":"dc:a6:32:2f:3b:8"}}
+EAP-NOOB: Entering eap_noob_decode_obj
+EAP-NOOB: Entering eap_noob_verify_param_len
+EAP-NOOB: ENTERING NOOB PROCESS TYPE 2
+EAP-NOOB: Entering eap_noob_verify_peerId
+EAP-NOOB: Input to eap_noob_get_sid is null
+DONE   = 0
+EAP-NOOB: IS Done? 0
+EAP: EAP entering state METHOD_REQUEST
+EAP: building EAP-Request: Identifier 73
+EAP-NOOB: BUILDREQ SERVER
+EAP-NOOB: next request = 3
+EAP-NOOB: ENTERING BUILD TYPE 3
+EAP-NOOB: Nonce z-8vPCmsNCei8y6Fz9ilxIE7lIkgm2smukYduMe9PBM
+EAP-NOOB: entering eap_noob_get_key
+EAP-NOOB: Using cryptosuite 1: X25519 with id 1034
+-----BEGIN PRIVATE KEY-----
+MC4CAQAwBQYDK2VuBCIEICg+dbnT97Gix+aYgxwQ+svruUKdq1vNSG6MC2IS635V
+-----END PRIVATE KEY-----
+-----BEGIN PUBLIC KEY-----
+MCowBQYDK2VuAyEAlGbSUgmB/7Uaz4ehiwjq39WioZyEXTffcf3erB+1FzU=
+-----END PUBLIC KEY-----
+EAP-NOOB: JWK key is {"kty":"EC","crv":"X25519","x":"lGbSUgmB_7Uaz4ehiwjq39WioZyEXTffcf3erB-1FzU"}
+In function eap_noob_getTimeout
+EAP: EAP entering state SEND_REQUEST
+EAP: EAP entering state IDLE
+EAP: retransmit timeout 1 seconds (from EAP method hint)
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state REQUEST
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: Sending EAP Packet (identifier 73)
+IEEE 802.1X: 60:e3:27:11:d1:25 - (EAP) retransWhile --> 0
+EAP: EAP entering state RETRANSMIT
+wlan0: CTRL-EVENT-EAP-RETRANSMIT 60:e3:27:11:d1:25
+EAP: EAP entering state TIMEOUT_FAILURE
+wlan0: CTRL-EVENT-EAP-TIMEOUT-FAILURE 60:e3:27:11:d1:25
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state TIMEOUT
+IEEE 802.1X: 60:e3:27:11:d1:25 AUTH_PAE entering state ABORTING
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state INITIALIZE
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.1X: aborting authentication
+wlan0: EAP Timeout, STA 60:e3:27:11:d1:25
+wlan0: ap_sta_disconnect STA 60:e3:27:11:d1:25 reason=2
+nl80211: sta_remove -> DEL_STATION wlan0 60:e3:27:11:d1:25 --> 0 (Success)
+nl80211: Set STA flags - ifname=wlan0 addr=60:e3:27:11:d1:25 total_flags=0x0 flags_or=0x0 flags_and=0xfffffff1 authorized=0
+wlan0: STA 60:e3:27:11:d1:25 WPA: event 3 notification
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=0 addr=0xf7a6d0 key_idx=0 set_tx=1 seq_len=0 key_len=0 key_flag=0x20
+nl80211: DEL_KEY
+   addr=60:e3:27:11:d1:25
+   pairwise key
+nl80211: set_key failed; err=-22 Invalid argument
+RSN: PTK removal from the driver failed
+WPA: 60:e3:27:11:d1:25 WPA_PTK entering state DISCONNECTED
+WPA: 60:e3:27:11:d1:25 WPA_PTK entering state INITIALIZE
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=0 addr=0xf7a6d0 key_idx=0 set_tx=1 seq_len=0 key_len=0 key_flag=0x20
+nl80211: DEL_KEY
+   addr=60:e3:27:11:d1:25
+   pairwise key
+nl80211: set_key failed; err=-22 Invalid argument
+RSN: PTK removal from the driver failed
+wlan0: ap_sta_disconnect: reschedule ap_handle_timer timeout for 60:e3:27:11:d1:25 (5 seconds - AP_MAX_INACTIVITY_AFTER_DEAUTH)
+IEEE 802.1X: 60:e3:27:11:d1:25 AUTH_PAE entering state INITIALIZE
+IEEE 802.1X: 60:e3:27:11:d1:25 BE_AUTH entering state IDLE
+EAP: EAP entering state DISABLED
+wlan0: Deauthentication callback for STA 60:e3:27:11:d1:25
+wlan0: Removing STA 60:e3:27:11:d1:25 from kernel driver
+nl80211: sta_remove -> DEL_STATION wlan0 60:e3:27:11:d1:25 --> 0 (Success)
+wlan0: STA 60:e3:27:11:d1:25 MLME: MLME-DEAUTHENTICATE.indication(60:e3:27:11:d1:25, 2)
+wlan0: STA 60:e3:27:11:d1:25 MLME: MLME-DELETEKEYS.request(60:e3:27:11:d1:25)
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=0 addr=0xf7a6d0 key_idx=0 set_tx=1 seq_len=0 key_len=0 key_flag=0x20
+nl80211: DEL_KEY
+   addr=60:e3:27:11:d1:25
+   pairwise key
+nl80211: set_key failed; err=-22 Invalid argument
+RSN: PTK removal from the driver failed
+nl80211: Drv Event 20 (NL80211_CMD_DEL_STATION) received for wlan0
+nl80211: Delete station 60:e3:27:11:d1:25
+wlan0: Event DISASSOC (1) received
+wlan0: STA 60:e3:27:11:d1:25 IEEE 802.11: disassociated
+nl80211: Set STA flags - ifname=wlan0 addr=60:e3:27:11:d1:25 total_flags=0x0 flags_or=0x0 flags_and=0xfffffff1 authorized=0
+wlan0: STA 60:e3:27:11:d1:25 WPA: event 2 notification
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=0 addr=0xf7a6d0 key_idx=0 set_tx=1 seq_len=0 key_len=0 key_flag=0x20
+nl80211: DEL_KEY
+   addr=60:e3:27:11:d1:25
+   pairwise key
+nl80211: set_key failed; err=-22 Invalid argument
+RSN: PTK removal from the driver failed
+WPA: 60:e3:27:11:d1:25 WPA_PTK entering state DISCONNECTED
+WPA: 60:e3:27:11:d1:25 WPA_PTK entering state INITIALIZE
+wpa_driver_nl80211_set_key: ifindex=3 (wlan0) alg=0 addr=0xf7a6d0 key_idx=0 set_tx=1 seq_len=0 key_len=0 key_flag=0x20
+nl80211: DEL_KEY
+   addr=60:e3:27:11:d1:25
+   pairwise key
+nl80211: set_key failed; err=-22 Invalid argument
+RSN: PTK removal from the driver failed
+nl80211: Set STA flags - ifname=wlan0 addr=60:e3:27:11:d1:25 total_flags=0x0 flags_or=0x0 flags_and=0xfffffff1 authorized=0
+nl80211: sta_remove -> DEL_STATION wlan0 60:e3:27:11:d1:25 --> 0 (Success)
+ap_free_sta: cancel ap_handle_timer for 60:e3:27:11:d1:25
+EAP: Server state machine removed
+EAP-NOOB: RESET SERVER
+EAP-NOOB: Entering eap_noob_free_ctx
+nl80211: Ignored event 20 (NL80211_CMD_DEL_STATION) for foreign interface (ifindex 5 wdev 0x0)
+nl80211: Ignored event 39 (NL80211_CMD_DEAUTHENTICATE) for foreign interface (ifindex 5 wdev 0x0)
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+nl80211: Ignored event 48 (NL80211_CMD_DISCONNECT) for foreign interface (ifindex 5 wdev 0x0)
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+nl80211: Ignored event 33 (NL80211_CMD_TRIGGER_SCAN) for foreign interface (ifindex 5 wdev 0x0)
+nl80211: Ignored event 34 (NL80211_CMD_NEW_SCAN_RESULTS) for foreign interface (ifindex 5 wdev 0x0)
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+RTM_NEWLINK: ifi_index=5 ifname=wlan1 operstate=2 linkmode=0 ifi_family=0 ifi_flags=0x1003 ([UP])
+Signal 2 received - terminating
+hostapd_interface_deinit_free(0xf6d400)
+hostapd_interface_deinit_free: num_bss=1 conf->num_bss=1
+hostapd_interface_deinit(0xf6d400)
+wlan0: interface state ENABLED->DISABLED
+hostapd_bss_deinit: deinit bss wlan0
+wlan0: Deauthenticate all stations
+nl80211: sta_remove -> DEL_STATION wlan0 ff:ff:ff:ff:ff:ff --> 0 (Success)
+wlan0: AP-DISABLED 
+hostapd_cleanup(hapd=0xf6f9b8 (wlan0))
+wlan0: CTRL-EVENT-TERMINATING 
+hostapd_free_hapd_data(wlan0)
+hostapd_interface_deinit_free: driver=0x9fc18 drv_priv=0xf71090 -> hapd_deinit
+nl80211: deinit ifname=wlan0 disabled_11b_rates=0
+nl80211: Disable Probe Request reporting nl_preq=0x887e57c9
+nl80211: Remove monitor interface: refcount=0
+nl80211: Remove beacon (ifindex=3)
+netlink: Operstate: ifindex=3 linkmode=0 (kernel-control), operstate=6 (IF_OPER_UP)
+nl80211: Set mode ifindex 3 iftype 2 (STATION)
+nl80211: Teardown AP(wlan0) - device_ap_sme=1 use_monitor=0
+nl80211: Unsubscribe mgmt frames handle 0x887f9fe9 (AP teardown (dev SME))
+hostapd_interface_free(0xf6d400)
+hostapd_interface_free: free hapd 0xf6f9b8
+hostapd_cleanup_iface(0xf6d400)
+hostapd_cleanup_iface_partial(0xf6d400)
+hostapd_cleanup_iface: free iface=0xf6d400
