@@ -50,9 +50,9 @@ def compute_noob_id(noob_b64):
     return noob_id_b64
 
 def gen_noob():
-    noob = os.urandom(16);
-    noob_64 = base64.urlsafe_b64encode(noob);
-    noob_64 = str(noob_64,'utf-8').strip('=');
+    noob = os.urandom(16)
+    noob_64 = base64.urlsafe_b64encode(noob)
+    noob_64 = str(noob_64,'utf-8').strip('=')
     return noob_64
 
 def compute_hoob(peer_id, noob):
@@ -81,10 +81,10 @@ def generate_oob():
     sent_time = int(datetime.utcnow().timestamp())
 
     return {
-        noob,
-        noob_id,
-        hoob,
-        sent_time
+        "noob":noob,
+        "noob_id":noob_id,
+        "hoob":hoob,
+        "sent_time":sent_time
     } 
 
 def get_pid(arg):
@@ -100,9 +100,9 @@ def get_pid(arg):
     return pid_list
 
 def runbash(cmd):
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE);
-    out = p.stdout.read().strip();
-    return out;
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+    out = p.stdout.read().strip()
+    return out
 
 def kill_existing_supplicants():
     pid = get_pid('wpa_supplicant')
