@@ -13,9 +13,7 @@ from datetime import datetime
 
 
 # Constants
-
-
-db_path_peer = "noob_peer.db"
+db_path_peer = "/tmp/noob_peer.db"
 
 ## DB funcs
 
@@ -128,12 +126,25 @@ def check_result():
         return True
     return False
 
-def main():
+def print_oob_message(oob):  
+    if oob is None:
+        return
 
-    oob = generate_oob()
-    if oob:
-        insert_oob(oob)
+    oobString = json.dumps(oob)
+    message_bytes = oobString.encode('ascii')
+    base64_bytes = base64.b64encode(message_bytes)
+    base64_message = base64_bytes.decode('ascii')
 
+    query = "SELECT ServerInfo from EphemeralState WHERE SSID like '" + oob["ssid"] + "'"
+    data = exec_query(query, db_path_peer)
+
+    serverInfo = json.loads(data[0])
+
+    printMessage = serverInfo["Url"] + "/" + base64_message
+    print ("To complete the OOB process please use device whithin the host network to navigate to this URL:")
+    print(printMessage)
+        
+def main():    
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--interface', dest='interface',help='Name of the wireless interface')
     args = parser.parse_args()
@@ -144,11 +155,22 @@ def main():
     cmd = "./wpa_supplicant -i "+args.interface+" -c wpa_supplicant.conf -Dnl80211 -d"
     wpa_process = subprocess.Popen(cmd,shell=True, stdout=1, stdin=None)
 
+    oob = None
+    elapsed = 0
     while not check_result():
+
         time.sleep(5)
-        oob = generate_oob()
-        if oob:
+        
+        if elapsed == 0:
+            oob = generate_oob()    
             insert_oob(oob)
+        
+        print_oob_message(oob)
+        
+        elapsed +=5
+        if elapsed == 60:
+            elapsed = 0
+            
     
     wpa_process.communicate()
 
