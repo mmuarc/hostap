@@ -27,15 +27,15 @@ app.get("/sendoob/:oobstring", (req, res) => {
 
       server_db.run(
         "Delete from EphemeralNoob where PeerId = ?",
-        [jsonOob.PeerId],
+        [jsonOob.peer_id],
         (err) => {
           server_db.run(
             "INSERT INTO EphemeralNoob (PeerId, NoobId, Noob, Hoob, sent_time) VALUES(?,?,?,?,?)",
             [
-              jsonOob.PeerId,
-              jsonOob.NoobId,
-              jsonOob.Noob,
-              jsonOob.Hoob,
+              jsonOob.peer_id,
+              jsonOob.noob_id,
+              jsonOob.noob,
+              jsonOob.hoob,
               jsonOob.sent_time,
             ],
             (err) => {
@@ -55,7 +55,3 @@ app.get("/sendoob/:oobstring", (req, res) => {
 app.listen(3000, () =>
   console.log("Simple OOB delivery server listening on 3000")
 );
-
-peer_db.all("Select * from EphemeralNoob LIMIT 1", (err, rows) => {
-  let pepe = rows;
-});
