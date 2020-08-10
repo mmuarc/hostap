@@ -355,6 +355,7 @@ int eap_noob_check_compatibility(struct eap_noob_data *data)
 **/
 static void eap_noob_config_change(struct eap_sm *sm , struct eap_noob_data *data)
 {
+    wpa_printf(MSG_DEBUG, "EAP-NOOB: Entering %s", __func__);
     char buff[120] = {0};
     size_t len = 0;
     struct wpa_supplicant * wpa_s = (struct wpa_supplicant *)sm->msg_ctx;
@@ -1452,7 +1453,7 @@ static struct wpabuf * eap_noob_process_type_6(struct eap_sm * sm, struct eap_no
     if (FAILURE == eap_noob_update_persistentstate(data)) {
         wpabuf_free(resp); return NULL;
     }
-    wpa_printf(MSG_DEBUG,"PEER ID IS STILL: %s",data->peerid);
+    wpa_printf(MSG_DEBUG,"EAP-NOOB: PEER ID IS STILL: %s",data->peerid);
     return resp;
 }
 
