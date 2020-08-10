@@ -15,7 +15,7 @@ from datetime import datetime
 # Constants
 
 
-db_path_peer = "/tmp/noob_peer.db"
+db_path_peer = "noob_peer.db"
 
 ## DB funcs
 
@@ -37,6 +37,13 @@ def get_peers():
     query = 'SELECT Ssid, PeerId from EphemeralState WHERE PeerState=1'
     data = exec_query(query, db_path_peer)
     return data
+
+def insert_oob(oob):
+    # Insert the OOB data into the peer database
+    query = 'INSERT INTO EphemeralNoob (Ssid, PeerId, NoobId, Noob, Hoob, sent_time) VALUES (?, ?, ?, ?, ?, ?)'
+    args = [oob["ssid"], oob["peer_id"], oob["noob_id"], oob["noob"], oob["hoob"], oob["sent_time"]]
+    exec_query(query, db_path_peer, args)
+
 ## OOB generation
 
 def compute_noob_id(noob_b64):
@@ -74,18 +81,24 @@ def compute_hoob(peer_id, noob):
 
 
 def generate_oob():
-    peer = get_peers()
-    noob = gen_noob()
-    noob_id = compute_noob_id(noob)
-    hoob = compute_hoob(peer[1], noob)
-    sent_time = int(datetime.utcnow().timestamp())
-
-    return {
-        "noob":noob,
-        "noob_id":noob_id,
-        "hoob":hoob,
-        "sent_time":sent_time
-    } 
+    result = None
+    try:
+        peer = get_peers()
+        noob = gen_noob()
+        noob_id = compute_noob_id(noob)
+        hoob = compute_hoob(peer[1], noob)
+        sent_time = int(datetime.utcnow().timestamp())
+        result = {
+            "ssid":peer[0],
+            "peer_id":peer[1],
+            "noob":noob,
+            "noob_id":noob_id,
+            "hoob":hoob,
+            "sent_time":sent_time
+        }
+    except:
+        print("Couldn't generate oob")
+    return result 
 
 def get_pid(arg):
     pid_list = []
@@ -116,6 +129,11 @@ def check_result():
     return False
 
 def main():
+
+    oob = generate_oob()
+    if oob:
+        insert_oob(oob)
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--interface', dest='interface',help='Name of the wireless interface')
     args = parser.parse_args()
@@ -129,6 +147,10 @@ def main():
     while not check_result():
         time.sleep(5)
         oob = generate_oob()
+        if oob:
+            insert_oob(oob)
+    
+    wpa_process.communicate()
 
 def onExit():
     kill_existing_supplicants()
