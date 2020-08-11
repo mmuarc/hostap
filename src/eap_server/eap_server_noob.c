@@ -798,7 +798,7 @@ static int eap_noob_get_sleeptime(struct eap_noob_data * data)
     /* TODO:  Include actual implementation for calculating the waiting time.
      * return  \
      * (int)((eap_noob_cal_pow(2,data->sleep_count))* (rand()%8) + 1) % 3600 ; */
-    return 60;
+    return 30;
 }
 
 /**
