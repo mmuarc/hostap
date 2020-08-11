@@ -37,6 +37,8 @@ def get_peers():
     return data
 
 def insert_oob(oob):
+    if oob is None:
+        return
     # Insert the OOB data into the peer database
     query = 'INSERT INTO EphemeralNoob (Ssid, PeerId, NoobId, Noob, Hoob, sent_time) VALUES (?, ?, ?, ?, ?, ?)'
     args = [oob["ssid"], oob["peer_id"], oob["noob_id"], oob["noob"], oob["hoob"], oob["sent_time"]]
@@ -121,7 +123,7 @@ def kill_existing_supplicants():
         os.kill(int(item),signal.SIGKILL)
 
 def check_result():
-    res = runbash("./wpa_cli status | grep 'EAP state=SUCCESS'")
+    res = runbash(b"sudo ./wpa_cli status | grep 'EAP state=SUCCESS'")
     if res == b"EAP state=SUCCESS":
         return True
     return False
@@ -138,11 +140,12 @@ def print_oob_message(oob):
     query = "SELECT ServerInfo from EphemeralState WHERE SSID like '" + oob["ssid"] + "'"
     data = exec_query(query, db_path_peer)
 
+    if not data:
+        return
     serverInfo = json.loads(data[0])
 
     printMessage = serverInfo["Url"] + "/" + base64_message
-    print ("To complete the OOB process please use device whithin the host network to navigate to this URL:")
-    print(printMessage)
+    print("OOB-MESSAGE: To complete the OOB process please use device whithin the host network to navigate to this URL: " + printMessage + "\n")
         
 def main():    
     parser = argparse.ArgumentParser()
@@ -152,24 +155,29 @@ def main():
     kill_existing_supplicants()
    
     print("Starting wpa_supplicant...")
-    cmd = "./wpa_supplicant -i "+args.interface+" -c wpa_supplicant.conf -Dnl80211 -d"
+    cmd = "./wpa_supplicant -i "+args.interface+" -c wpa_supplicant.conf -Dnl80211 -d | egrep 'EAP:|EAP-NOOB'"
     wpa_process = subprocess.Popen(cmd,shell=True, stdout=1, stdin=None)
 
     oob = None
     elapsed = 0
     while not check_result():
 
-        time.sleep(5)
+        time.sleep(12)
         
-        if elapsed == 0:
+        if elapsed == 0 or oob is None:
+            elapsed=0
             oob = generate_oob()    
             insert_oob(oob)
+            
         
         print_oob_message(oob)
-        
-        elapsed +=5
-        if elapsed == 60:
+
+        if elapsed == 300:
             elapsed = 0
+
+        elapsed += 12
+
+
             
     
     wpa_process.communicate()

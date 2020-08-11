@@ -669,11 +669,13 @@ static struct wpabuf * eap_noob_build_type_9(const struct eap_noob_data * data, 
     // Generate the MAC
     mac = eap_noob_gen_MAC(data, MACP_TYPE, data->kdf_out->Kmp, KMP_LEN, RECONNECTING_STATE);
     if (!mac) {
+        printf("EAP-NOOB: mac empty, to exit");
         goto EXIT;
     }
 
     // Convert MAC to base 64
     if (FAILURE == eap_noob_Base64Encode(mac, MAC_LEN, &mac_b64)) {
+        printf("EAP-NOOB: error encoding MAC, to exit");
         goto EXIT;
     }
 
@@ -1291,6 +1293,7 @@ static struct wpabuf * eap_noob_process_type_9(struct eap_sm * sm, struct eap_no
         // Note: If there is no KzPrev value, this will do the same check as
         // before and thus it will still fail, as is expected.
         if (strcmp((char *) mac, data->mac)) {
+            printf("EAP-NOOB: Mac check failed here");
             // 4. Both do not match the received MAC, return error message
             data->err_code = E4001;
             resp = eap_noob_err_msg(data, id); return resp;
@@ -1314,7 +1317,8 @@ static struct wpabuf * eap_noob_process_type_9(struct eap_sm * sm, struct eap_no
 
     resp = eap_noob_build_type_9(data, id);
     data->peer_state = REGISTERED_STATE;
-    eap_noob_config_change(sm, data);
+    //Mmuarc: commented this to disable rewrite of the config
+    //eap_noob_config_change(sm, data);
 
     if (FAILURE == eap_noob_db_update(data, UPDATE_PERSISTENT_STATE)) {
         wpabuf_free(resp); return NULL;
@@ -1447,7 +1451,6 @@ static struct wpabuf * eap_noob_process_type_6(struct eap_sm * sm, struct eap_no
 
     resp = eap_noob_build_type_6(data, id);
     data->peer_state = REGISTERED_STATE;
-    eap_noob_config_change(sm, data);
     if (resp == NULL) wpa_printf(MSG_DEBUG, "EAP-NOOB: Null resp 4");
 
     if (FAILURE == eap_noob_update_persistentstate(data)) {
@@ -1534,7 +1537,9 @@ static struct wpabuf * eap_noob_process_type_3(struct eap_sm *sm, struct eap_noo
         // Generate the MAC input string such that it can be used for
         // calculating the Hoob
         data->mac_input_str = eap_noob_build_mac_input(data, data->dirp, data->peer_state);
-        if (SUCCESS == eap_noob_db_update_initial_exchange_info(sm, data)) eap_noob_config_change(sm, data);
+        // MMuarc: commented this to disable rewrite of the config
+        //if (SUCCESS == eap_noob_db_update_initial_exchange_info(sm, data)) eap_noob_config_change(sm, data);
+        eap_noob_db_update_initial_exchange_info(sm, data);
     }
     if (0!= data->minsleep)
         eap_noob_assign_waittime(sm,data);
@@ -2306,7 +2311,8 @@ static bool eap_noob_has_reauth_data(struct eap_sm * sm, void * priv)
         if(!data->realm || os_strlen(data->realm)==0)
             data->realm = os_strdup(DEFAULT_REALM);
         wpa_printf(MSG_DEBUG, "EAP-NOOB: Peer ID and Realm Reauth, %s %s", data->peerid, data->realm);
-        eap_noob_config_change(sm, data); eap_noob_db_update(data, UPDATE_PERSISTENT_STATE);
+        //TODO MMuarc: Commented this to disable rewrite of the config. Also, what's the point in updating with the information we already have?
+        //eap_noob_config_change(sm, data); eap_noob_db_update(data, UPDATE_PERSISTENT_STATE);
         return true;
     }
     wpa_printf(MSG_DEBUG, "EAP-NOOB: Returning False, %s", __func__);
