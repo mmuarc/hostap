@@ -1,11 +1,18 @@
 const express = require("express");
 const app = express();
-
+const https = require('https');
+const fs = require('fs');
 const PORT = 3000;
 const DATABASE_PATH = "/tmp/noob_server.db";
 
 var sqlite3 = require("sqlite3").verbose();
-var server_db = new sqlite3.Database(DATABASE_PATH, sqlite3.OPEN_READWRITE);
+
+var key = fs.readFileSync("./private.pem");
+var cert = fs.readFileSync("./certificate.pem");
+var options={
+  key:key,
+  cert:cert
+};
 
 app.get("/", (req, res) => {
   res.send(
@@ -14,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/sendoob/:oobstring", (req, res) => {
+  var server_db = new sqlite3.Database(DATABASE_PATH);
   var oobString = req.params.oobstring;
   let buff = Buffer.from(oobString, "base64");
   let text = buff.toString();
@@ -27,15 +35,15 @@ app.get("/sendoob/:oobstring", (req, res) => {
 
       server_db.run(
         "Delete from EphemeralNoob where PeerId = ?",
-        [jsonOob.PeerId],
+        [jsonOob.peer_id],
         (err) => {
           server_db.run(
             "INSERT INTO EphemeralNoob (PeerId, NoobId, Noob, Hoob, sent_time) VALUES(?,?,?,?,?)",
             [
-              jsonOob.PeerId,
-              jsonOob.NoobId,
-              jsonOob.Noob,
-              jsonOob.Hoob,
+              jsonOob.peer_id,
+              jsonOob.noob_id,
+              jsonOob.noob,
+              jsonOob.hoob,
               jsonOob.sent_time,
             ],
             (err) => {
@@ -52,10 +60,8 @@ app.get("/sendoob/:oobstring", (req, res) => {
   );
 });
 
-app.listen(3000, () =>
+var server = https.createServer(options,app);
+
+server.listen(3000, () =>
   console.log("Simple OOB delivery server listening on 3000")
 );
-
-peer_db.all("Select * from EphemeralNoob LIMIT 1", (err, rows) => {
-  let pepe = rows;
-});

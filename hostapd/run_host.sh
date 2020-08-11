@@ -1,1 +1,1 @@
-sudo ./hostapd hostapd.conf | egrep "EAP:|EAP-NOOB"
+sudo ./hostapd hostapd.conf -d | egrep "EAP:|EAP-NOOB"
