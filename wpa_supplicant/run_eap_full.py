@@ -10,10 +10,30 @@ import base64
 import hashlib
 import json
 from datetime import datetime
-
+import tkinter as tk
 
 # Constants
 db_path_peer = "/tmp/noob_peer.db"
+
+# tkinter
+root = tk.Tk()
+txb = tk.Text(root,height=2,width=140)
+txb.pack()
+root.title("OOB-Message")
+root.withdraw()
+
+def copyClick():
+    root.clipboard_clear()
+    root.clipboard_append(txb.get('1.0',tk.END))
+def regenerateClick():
+   # txb.delete('1.0',tk.END)
+    oob = generate_oob()    
+    insert_oob(oob)
+    print_oob_message(oob)
+
+
+tk.Button(root,text="Copy to clipboard",command=lambda:copyClick()).pack()
+tk.Button(root,text="Renerate Oob", command=lambda:regenerateClick()).pack()
 
 ## DB funcs
 
@@ -32,7 +52,7 @@ def exec_query(query, db_path, args=[]):
 def get_peers():
     """Retrieve PeerIds and SSIDs for peers that are ready for OOB transfer"""
 
-    query = 'SELECT Ssid, PeerId from EphemeralState WHERE PeerState=1'
+    query = 'SELECT Ssid, PeerId from EphemeralState WHERE PeerState=1 AND Z IS NOT NULL'
     data = exec_query(query, db_path_peer)
     return data
 
@@ -97,7 +117,7 @@ def generate_oob():
             "sent_time":sent_time
         }
     except:
-        print("Couldn't generate oob")
+        print("Can't generate oob")
     return result 
 
 def get_pid(arg):
@@ -123,7 +143,7 @@ def kill_existing_supplicants():
         os.kill(int(item),signal.SIGKILL)
 
 def check_result():
-    res = runbash(b"sudo ./wpa_cli status | grep 'EAP state=SUCCESS'")
+    res = runbash(b"sudo -S ./wpa_cli status | grep 'EAP state=SUCCESS'")
     if res == b"EAP state=SUCCESS":
         return True
     return False
@@ -146,7 +166,33 @@ def print_oob_message(oob):
 
     printMessage = serverInfo["Url"] + "/" + base64_message
     print("OOB-MESSAGE: To complete the OOB process please use device whithin the host network to navigate to this URL: " + printMessage + "\n")
+    txb.delete('1.0',tk.END)
+    txb.insert('1.0',printMessage)
+    root.update()
+    root.deiconify()
         
+
+def loop_check_result(oob,wpa_process,elapsed):
+
+    loopTime = 5000
+    result = check_result()
+    if loopTime >= 60000:
+        print ("OOB-MESSAGE: Elapsed " + str(loopTime) + " seconds. Renewing OOB")
+        oob = None
+        elapsed = 0
+        
+    if  not result and oob is None:
+        oob = generate_oob()    
+        insert_oob(oob)
+        print_oob_message(oob)
+
+    if not result:
+        root.after(loopTime,lambda: loop_check_result(oob,wpa_process,loopTime))
+    else:  
+        root.withdraw()
+    
+
+
 def main():    
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--interface', dest='interface',help='Name of the wireless interface')
@@ -156,37 +202,18 @@ def main():
    
     print("Starting wpa_supplicant...")
     cmd = "./wpa_supplicant -i "+args.interface+" -c wpa_supplicant.conf -Dnl80211 -d | egrep 'EAP:|EAP-NOOB'"
-    wpa_process = subprocess.Popen(cmd,shell=True, stdout=1, stdin=None)
+    wpa_process = subprocess.Popen(cmd,shell=True, stdout=1, stdin=None)    
 
     oob = None
-    elapsed = 0
-    while not check_result():
-
-        time.sleep(12)
-        
-        if elapsed == 0 or oob is None:
-            elapsed=0
-            oob = generate_oob()    
-            insert_oob(oob)
-            
-        
-        print_oob_message(oob)
-
-        if elapsed == 300:
-            elapsed = 0
-
-        elapsed += 12
-
-
-            
-    
-    wpa_process.communicate()
+    loop_check_result(oob,wpa_process,0)
 
 def onExit():
     kill_existing_supplicants()
 
 if __name__=='__main__':
     atexit.register(onExit)
-    main()
+    root.after(500,lambda: main())
+    root.lift()
+    root.mainloop()
 
 
