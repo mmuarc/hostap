@@ -26,7 +26,7 @@ app.get("/sendoob/:oobstring", (req, res) => {
   let buff = Buffer.from(oobString, "base64");
   let text = buff.toString();
   let jsonOob = JSON.parse(text);
-
+  console.log(jsonOob)
   server_db.all(
     "Select * from EphemeralNoob where PeerId = ?",
     [jsonOob.PeerId],
